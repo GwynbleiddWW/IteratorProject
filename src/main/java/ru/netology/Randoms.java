@@ -15,8 +15,6 @@ public class Randoms implements Iterable<Integer> {
     @Override
     public Iterator<Integer> iterator() {
         return new Iterator<>() {
-            final Random rand = new Random();
-            final int number = min + rand.nextInt(max - min + 1);
 
             @Override
             public boolean hasNext() {
@@ -25,7 +23,7 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public Integer next() {
-                return number;
+                return new Random().nextInt(max - min + 1) + min;
             }
         };
     }
